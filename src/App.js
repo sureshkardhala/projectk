@@ -4,9 +4,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <React.Fragment>
       <Layout />
-    </React.Fragment>
   );
 }
 
