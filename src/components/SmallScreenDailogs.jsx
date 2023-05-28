@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import {RxCross1} from "react-icons/rx"
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -56,26 +57,25 @@ export default function SmallScreenDialogs(props) {
     setOpen(true);
   };
   const handleClose = () => {
-    setValue();
     setOpen(false);
   };
 
   return (
     <div>
-      <div className="w-full flex flex-row justify-center text-sm text-gray-500  duration-300 py-2 px-6 space-x-10">
-        <button onClick={() => handleClickOpen("signin")} className="hover:text-red-400">Signin</button>
-        <button onClick={() => handleClickOpen("signup")} className="hover:text-red-400">Signup</button>
+      <div className="w-full flex flex-row justify-center text-sm text-gray-700  duration-300 py-2 px-6 space-x-10">
+        <button onClick={() => handleClickOpen("signin")} className="hover:text-gray-400 duration-300">Signin</button>
+        <button onClick={() => handleClickOpen("signup")} className="hover:text-gray-400 duration-300">Signup</button>
       </div>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-        ></BootstrapDialogTitle>
+       
         <DialogContent dividers>
+          <div className="flex justify-end px-2 mb-4">
+          <RxCross1 size={18} className="my-2 cursor-pointer hover:text-red-400 duration-300 " onClick={handleClose} />
+          </div>
           {value === "signin" && <SignIn />}
           {value === "signup" && <SignUp />}
         </DialogContent>
